@@ -122,10 +122,13 @@ var/list/global/map_templates = list()
 	if(centered)
 		T = locate(T.x - round(width/2) , T.y - round(height/2) , T.z)
 	if(!T)
+		to_world_log("Loading [name] failed: No turf at origin")
 		return
 	if(T.x+width > world.maxx)
+		to_world_log("Loading [name] failed: [T.x]+[width]=[T.x+width] > [world.maxx]")
 		return
 	if(T.y+height > world.maxy)
+		to_world_log("Loading [name] failed: [T.y]+[height]=[T.y+height] > [world.maxy]")
 		return
 
 	if(annihilate)
@@ -133,6 +136,7 @@ var/list/global/map_templates = list()
 
 	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
 	if(!bounds)
+		to_world_log("Loading [name] failed: no bounds!")
 		return
 
 //	if(!SSmapping.loading_ruins) //Will be done manually during mapping ss init

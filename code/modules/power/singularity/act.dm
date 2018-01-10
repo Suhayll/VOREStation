@@ -128,6 +128,9 @@
 /turf/space/singularity_act()
 	return
 
+/turf/simulated/open/singularity_act()
+	return
+
 /*******************
 * Nar-Sie Act/Pull *
 *******************/
